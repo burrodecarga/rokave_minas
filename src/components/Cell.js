@@ -1,14 +1,14 @@
 import React from 'react'
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 function Cell({ row, col, isFlipped, isBomb, value, handlePress }) {
-  return <Pressable
+  return <TouchableOpacity
    onPress={()=>handlePress(row,col)}
    style={[styles.container, !isFlipped && styles.isFlipped]}>
     <Text style={styles.text}>
     {isFlipped && (isBomb ? '💣' : value > 0 && value)}
     </Text>
-  </Pressable>
+  </TouchableOpacity>
 }
 
 const styles = StyleSheet.create({
